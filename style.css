@@ -19,10 +19,10 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 10px 20px; /* Adicionei padding lateral */
+    padding: 10px 20px;
 }
 
-/* --- NOVOS ESTILOS DO HEADER --- */
+/* --- ESTILOS DO HEADER --- */
 .header-container {
     display: flex;
     justify-content: space-between;
@@ -31,26 +31,26 @@ body {
 
 .logo {
     height: 50px;
-    margin-bottom: 0; /* Removido */
-    flex-shrink: 0; /* Impede que o logo encolha */
+    margin-bottom: 0;
+    flex-shrink: 0;
 }
 
 .search-container {
     display: flex;
     align-items: center;
     gap: 5px;
-    flex-grow: 1; /* Faz a barra de busca crescer */
+    flex-grow: 1;
     margin: 0 20px;
 }
 
 .search-input {
     flex: 1;
-    padding: 10px 15px; /* Mais padding interno */
+    padding: 10px 15px;
     border: none;
     border-radius: 5px;
-    font-size: 16px; /* Tamanho mais padrão */
-    height: 40px; /* Altura fixa */
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1); /* Sombra suave */
+    font-size: 16px;
+    height: 40px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
 .search-Btn {
@@ -99,7 +99,7 @@ body {
 .hero h1 {
     font-size: 48px;
     margin-bottom: 10px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Sombra no texto */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .hero p {
@@ -122,16 +122,16 @@ body {
     gap: 20px;
 }
 
-/* --- CARD DE PRODUTO ATUALIZADO --- */
+/* --- CARD DE PRODUTO --- */
 .product-card {
     background-color: #fff;
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
-    overflow: hidden; /* Para o zoom da imagem funcionar */
-    display: flex; /* Para alinhar info em baixo */
+    overflow: hidden;
+    display: flex;
     flex-direction: column;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra permanente */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .product-card:hover {
@@ -139,7 +139,6 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* NOVO: Efeito de zoom na imagem */
 .product-card:hover .product-image {
     transform: scale(1.05);
 }
@@ -151,8 +150,8 @@ body {
 
 .product-image {
     width: 100%;
-    aspect-ratio: 1 / 1; /* Força a imagem a ser quadrada */
-    object-fit: cover; /* Garante que a imagem cubra o espaço */
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     border-radius: 8px 8px 0 0;
     transition: 0.3s ease;
 }
@@ -168,14 +167,13 @@ body {
     font-size: 16px;
     margin-bottom: 10px;
     color: #555;
-    flex-grow: 1; /* Empurra o preço para baixo */
+    flex-grow: 1;
 }
 
 .product-pricing {
     margin-bottom: 5px;
 }
 
-/* NOVO: Estilo do preço antigo */
 .product-price-old {
     font-size: 14px;
     color: #999;
@@ -190,14 +188,14 @@ body {
 }
 
 .product-discount {
-    color: rgb(15, 150, 0); /* Verde para combinar */
+    color: rgb(15, 150, 0);
     font-weight: bold;
     font-size: 14px;
 }
 /* --- FIM CARD DE PRODUTO --- */
 
 
-/* --- NOVOS ESTILOS DO RODAPÉ --- */
+/* --- ESTILOS DO RODAPÉ --- */
 .footer {
     background-color: #fff;
     padding: 40px 0 0;
@@ -266,7 +264,6 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* Ajusta o header para quebrar */
     .header-container {
         flex-direction: column;
         gap: 15px;
@@ -294,7 +291,6 @@ body {
         font-size: 20px;
     }
 
-    /* Rodapé vira 1 coluna */
     .footer-container {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -302,6 +298,7 @@ body {
 }
 
 
+/* 3. Celulares (até 480px) */
 /* 3. Celulares (até 480px) */
 @media (max-width: 480px) {
     .search-container {
@@ -312,7 +309,6 @@ body {
         align-self: center;
     }
     .header-nav {
-        /* Centraliza os ícones no celular */
         justify-content: space-around;
         padding-top: 10px;
         border-top: 1px solid #eee;
@@ -322,15 +318,18 @@ body {
         height: 250px;
         padding-bottom: 30px;
         justify-content: center;
+        padding-left: 15px;  /* AUMENTADO LIGEIRAMENTE */
+        padding-right: 15px; /* AUMENTADO LIGEIRAMENTE */
     }
     .hero h1 {
-        font-size: 28px;
+        font-size: 24px;      /* DIMINUÍDO AINDA MAIS */
+        line-height: 1.3;
+        word-wrap: break-word; /* FORÇA A QUEBRA DA PALAVRA */
     }
     .hero p {
-        font-size: 18px;
+        font-size: 15px;      /* DIMINUÍDO AINDA MAIS */
     }
 
-    /* Grade de produtos vira 1 coluna */
     .products-grid {
         grid-template-columns: 1fr;
     }
