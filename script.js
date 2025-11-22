@@ -18,12 +18,26 @@ function formatPrice(price) {
 }
 
 function createProductCard(product) {
+    
+    // NOVO: Calcula o preço original antes do desconto
+    const originalPrice = product.price / (1 - (product.discount / 100));
+
+    // ATUALIZADO: O HTML do card agora inclui o preço antigo
     return `
         <div class="product-card">
-            <img src="${product.image}" alt="${product.title}" class="product-image">
-            <h3 class="product-title">${product.title}</h3>
-            <div class="product-price">${formatPrice(product.price)}</div>
-            <div class="product-discount">${product.discount}% OFF</div>
+            <div class="product-image-container">
+                <img src="${product.image}" alt="${product.title}" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">${product.title}</h3>
+                
+                <div class="product-pricing">
+                    <span class="product-price-old">${formatPrice(originalPrice)}</span>
+                    <span class="product-price">${formatPrice(product.price)}</span>
+                </div>
+
+                <div class="product-discount">${product.discount}% OFF</div>
+            </div>
         </div>
     `;
 }
@@ -49,5 +63,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("searchBtn").addEventListener("click", searchProducts);
 
-    document.getElementById("searchInput").addEventListener("input", searchProducts);
+    // MUDANÇA: Mudei de "input" para "keyup" e adicionei o "Enter"
+    // Isso evita buscas a cada letra e busca ao apertar Enter
+    const searchInput = document.getElementById("searchInput");
+    
+    searchInput.addEventListener("keyup", (event) => {
+        // Se apertar "Enter"
+        if (event.key === "Enter") {
+            searchProducts();
+        }
+    });
+
+    // Se você AINDA QUISER que busque a cada letra, descomente a linha abaixo:
+    // searchInput.addEventListener("input", searchProducts);
 });

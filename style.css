@@ -7,37 +7,50 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f5f5f5;
+    color: #333;
 }
 
 .header {
     background-color: #fde600;
     padding: 10px 0;
+    border-bottom: 1px solid #ddd;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 10px;
+    padding: 10px 20px; /* Adicionei padding lateral */
+}
+
+/* --- NOVOS ESTILOS DO HEADER --- */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
-    height: 84px;
-    margin-bottom: 10px;
+    height: 50px;
+    margin-bottom: 0; /* Removido */
+    flex-shrink: 0; /* Impede que o logo encolha */
 }
 
 .search-container {
     display: flex;
     align-items: center;
     gap: 5px;
+    flex-grow: 1; /* Faz a barra de busca crescer */
+    margin: 0 20px;
 }
 
 .search-input {
     flex: 1;
-    padding: 10px;
+    padding: 10px 15px; /* Mais padding interno */
     border: none;
     border-radius: 5px;
-    font-size: 18px;
-    height: 34px;
+    font-size: 16px; /* Tamanho mais padrão */
+    height: 40px; /* Altura fixa */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1); /* Sombra suave */
 }
 
 .search-Btn {
@@ -45,10 +58,29 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 18px;
-    height: 37px;
-    width: 40px;
+    font-size: 16px;
+    height: 40px;
+    width: 45px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
+
+.header-nav {
+    display: flex;
+    gap: 25px;
+    flex-shrink: 0;
+}
+
+.nav-icon {
+    font-size: 22px;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.nav-icon:hover {
+    color: #000;
+}
+/* --- FIM ESTILOS HEADER --- */
 
 .hero {
     background-image: url("https://http2.mlstatic.com/D_NQ_963172-MLA97798572334_112025-OO.webp");
@@ -67,10 +99,12 @@ body {
 .hero h1 {
     font-size: 48px;
     margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Sombra no texto */
 }
 
 .hero p {
     font-size: 24px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .main {
@@ -88,12 +122,16 @@ body {
     gap: 20px;
 }
 
+/* --- CARD DE PRODUTO ATUALIZADO --- */
 .product-card {
     background-color: #fff;
     border-radius: 8px;
-    padding: 20px;
     cursor: pointer;
     transition: 0.3s;
+    overflow: hidden; /* Para o zoom da imagem funcionar */
+    display: flex; /* Para alinhar info em baixo */
+    flex-direction: column;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra permanente */
 }
 
 .product-card:hover {
@@ -101,33 +139,203 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* NOVO: Efeito de zoom na imagem */
+.product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+.product-image-container {
+    overflow: hidden;
+    border-bottom: 1px solid #eee;
+}
+
 .product-image {
     width: 100%;
-    border-radius: 8px;
+    aspect-ratio: 1 / 1; /* Força a imagem a ser quadrada */
+    object-fit: cover; /* Garante que a imagem cubra o espaço */
+    border-radius: 8px 8px 0 0;
+    transition: 0.3s ease;
+}
+
+.product-info {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-title {
-    font-size: 18px;
-    margin: 10px 0;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #555;
+    flex-grow: 1; /* Empurra o preço para baixo */
+}
+
+.product-pricing {
+    margin-bottom: 5px;
+}
+
+/* NOVO: Estilo do preço antigo */
+.product-price-old {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+    margin-right: 8px;
 }
 
 .product-price {
-    font-size: 20px;
-    color: rgb(15, 150, 0);
+    font-size: 22px;
+    color: #333;
     font-weight: bold;
 }
 
 .product-discount {
-    color: red;
+    color: rgb(15, 150, 0); /* Verde para combinar */
     font-weight: bold;
+    font-size: 14px;
 }
+/* --- FIM CARD DE PRODUTO --- */
 
+
+/* --- NOVOS ESTILOS DO RODAPÉ --- */
 .footer {
     background-color: #fff;
-    padding: 20px;
-    text-align: center;
+    padding: 40px 0 0;
+    text-align: left;
     margin-top: 50px;
     border-top: 2px solid #fde600;
     color: #777;
     font-size: 14px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-column h4 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.footer-column a {
+    color: #777;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+    color: #333;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-socials a {
+    font-size: 24px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 1px solid #eee;
+    font-size: 12px;
+}
+/* --- FIM ESTILOS RODAPÉ --- */
+
+
+/* ========================================= */
+/* 📱 ESTILOS RESPONSIVOS 📱               */
+/* ========================================= */
+
+/* 1. Tablets e Desktops Menores (até 900px) */
+@media (max-width: 900px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Ajusta o header para quebrar */
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .search-container {
+        width: 100%;
+        margin: 0;
+    }
+    .header-nav {
+        justify-content: flex-end;
+        width: 100%;
+    }
+}
+
+
+/* 2. Celulares Grandes (até 768px) */
+@media (max-width: 768px) {
+    .hero {
+        height: 300px;
+    }
+    .hero h1 {
+        font-size: 36px;
+    }
+    .hero p {
+        font-size: 20px;
+    }
+
+    /* Rodapé vira 1 coluna */
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+
+/* 3. Celulares (até 480px) */
+@media (max-width: 480px) {
+    .search-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .logo {
+        align-self: center;
+    }
+    .header-nav {
+        /* Centraliza os ícones no celular */
+        justify-content: space-around;
+        padding-top: 10px;
+        border-top: 1px solid #eee;
+    }
+
+    .hero {
+        height: 250px;
+        padding-bottom: 30px;
+        justify-content: center;
+    }
+    .hero h1 {
+        font-size: 28px;
+    }
+    .hero p {
+        font-size: 18px;
+    }
+
+    /* Grade de produtos vira 1 coluna */
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        text-align: center;
+    }
 }
