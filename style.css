@@ -322,7 +322,8 @@ body {
         padding-right: 15px; /* AUMENTADO LIGEIRAMENTE */
     }
     .hero h1 {
-        font-size: 24px;      /* DIMINUÍDO AINDA MAIS */
+        margin-top: 150px;
+        font-size: 30px;      /* DIMINUÍDO AINDA MAIS */
         line-height: 1.3;
         word-wrap: break-word; /* FORÇA A QUEBRA DA PALAVRA */
     }
